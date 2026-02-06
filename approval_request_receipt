@@ -1,0 +1,32 @@
+<data>
+  <!--approval-->
+  <xpath expr="//button[@name='action_view_stock_valuation_layers']" position="after">
+    <button name="1106" type="action" class="oe_stat_button" icon="fa-check-square" invisible="x_approval_count == 0">
+        <field name="x_approval_count" widget="statinfo" string="Approvals"/>
+    </button>
+  </xpath>
+  <xpath expr="//form/sheet/notebook" position="inside">
+    <page string="Approval Request PB/PS" name="x_studio_approval_ids_page">
+      <group name="studio_group_82e">
+        <field name="x_studio_approval_ids" force_save="0" readonly="False">
+          <list create="true" sample="1" decoration-info="request_status == 'new'" editable="bottom" open_form_view="true">
+            <field name="create_date" optional="show" widget="datetime" options="{&quot;show_seconds&quot;:false}"/>
+            <field name="name"/>
+            <field name="cdp_project_id" optional="show"/>
+            <field name="request_owner_id" widget="many2one_avatar_user"/>
+            <field name="category_id"/>
+            <field name="date_start" string="Request Start" optional="show"/>
+            <field name="date_end" string="Request To" optional="show"/>
+            <field name="date_confirmed" string="Confirm Date" optional="hide"/>
+            <field name="location" string="Location" optional="hide"/>
+            <field name="activity_ids" widget="list_activity" optional="hide"/>
+            <field name="user_ids" string="Approvers" widget="many2many_avatar_user" optional="hide"/>
+            <field name="request_status" decoration-info="request_status == 'new'" decoration-warning="request_status == 'pending'" decoration-success="request_status == 'approved'" decoration-danger="request_status == 'refused'" widget="badge"/>
+            <field name="company_id" readonly="True" optional="hide" groups="base.group_multi_company"/>
+          </list>
+        </field>
+      </group>
+    </page>  
+  </xpath>
+  
+</data>
