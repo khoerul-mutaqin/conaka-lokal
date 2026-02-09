@@ -1,0 +1,15 @@
+<data>
+  <!--so-->
+  <xpath expr="//button[@name='action_open_purchase_orders']" position="replace">
+    <button class="oe_stat_button" icon="fa-credit-card" string="Purchase Order" name="964" type="action" invisible="purchase_order_count == 0">
+      <field name="x_studio_count_po" string="Purchase Orders" groups="purchase.group_purchase_user" widget="statinfo"/>
+    </button>
+  </xpath>
+
+  <!--transfer-->
+  <xpath expr="//button[@name='action_open_transfers']" position="replace">
+      <button class="oe_stat_button" icon="fa-credit-card" string="Transfer" name="1108" type="action" invisible="x_studio_count_transfer == 0">
+          <field name="x_studio_count_transfer" string="Transfer" groups="purchase.group_purchase_user" widget="statinfo"/>
+       </button>
+  </xpath>
+</data>
